@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Overall impact</h2>
+<div class="overall-grid">
+	<div class="row">
+		<div class="label">Home</div>
+		<div class="progress"><div class="progress-fill" style="width: {{ (home/2.5)*100 if home>0 else 2 }}%"></div></div>
+		<div class="value">{{ '%.1f'|format(home) }}</div>
+	</div>
+	<div class="row">
+		<div class="label">Travel</div>
+		<div class="progress"><div class="progress-fill" style="width: {{ (travel/2.5)*100 if travel>0 else 2 }}%"></div></div>
+		<div class="value">{{ '%.1f'|format(travel) }}</div>
+	</div>
+	<div class="row">
+		<div class="label">Food</div>
+		<div class="progress"><div class="progress-fill" style="width: {{ (food/2.5)*100 if food>0 else 2 }}%"></div></div>
+		<div class="value">{{ '%.1f'|format(food) }}</div>
+	</div>
+	<div class="row">
+		<div class="label">Others</div>
+		<div class="progress"><div class="progress-fill" style="width: {{ (others/2.5)*100 if others>0 else 2 }}%"></div></div>
+		<div class="value">{{ '%.1f'|format(others) }}</div>
+	</div>
+</div>
+
+<h3>Overall {{ '%.1f'|format(total) }}</h3>
+<p>{{ description }}</p>
+{% endblock %}

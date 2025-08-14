@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Carbonfootprint Web</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+	<header class="site-header">
+		<nav class="nav">
+			<a class="brand" href="/">Carbonfootprint</a>
+			<div class="spacer"></div>
+			<a href="/dashboard">Dashboard</a>
+			<a href="/overall">Overall</a>
+			<a href="/survey/travel">Travel Survey</a>
+			{% if session.get('user_email') %}
+				<a href="/logout">Logout</a>
+			{% else %}
+				<a href="/login">Login</a>
+				<a href="/signup">Sign up</a>
+			{% endif %}
+		</nav>
+	</header>
+	<main class="container">
+		{% block content %}{% endblock %}
+	</main>
+</body>
+</html>

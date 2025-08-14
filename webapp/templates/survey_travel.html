@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Travel survey</h2>
+<form method="post" class="form grid">
+	<label>Weekly driving distance
+		<select name="distance" required>
+			<option value="noDrive">I do not drive</option>
+			<option value="low">Short (0-50 km)</option>
+			<option value="medium">Medium (50-200 km)</option>
+			<option value="high">High (200+ km)</option>
+		</select>
+	</label>
+	<label>Primary transport
+		<select name="transport" required>
+			<option value="walk">Walk</option>
+			<option value="bicycle">Bicycle</option>
+			<option value="publicTransport">Public transport</option>
+			<option value="motorcycle">Motorcycle</option>
+			<option value="car">Car</option>
+		</select>
+	</label>
+	<label>Vehicle type
+		<select name="vehicleType" required>
+			<option value="noVehicle">No vehicle</option>
+			<option value="electric">Electric</option>
+			<option value="hybrid">Hybrid</option>
+			<option value="petrol">Petrol</option>
+			<option value="diesel">Diesel</option>
+		</select>
+	</label>
+	<label>Flights per year
+		<select name="flights" required>
+			<option value="noFlights">None</option>
+			<option value="few">Few</option>
+			<option value="moderate">Moderate</option>
+			<option value="many">Many</option>
+		</select>
+	</label>
+	<label>Carpooling
+		<select name="carpool" required>
+			<option value="alwaysCarpool">Always</option>
+			<option value="sometimesCarpool">Sometimes</option>
+			<option value="rarelyCarpool">Rarely</option>
+			<option value="neverCarpool">Never</option>
+		</select>
+	</label>
+	<label>Ride hailing usage
+		<select name="rideHailing" required>
+			<option value="neverRide">Never</option>
+			<option value="occasionally">Occasionally</option>
+			<option value="weekly">Weekly</option>
+			<option value="daily">Daily</option>
+		</select>
+	</label>
+	<label>Route planning
+		<select name="routePlanning" required>
+			<option value="yesPlan">Yes</option>
+			<option value="sometimesPlan">Sometimes</option>
+			<option value="noPlan">No</option>
+		</select>
+	</label>
+	<div class="actions">
+		<button class="btn" type="submit">Submit</button>
+	</div>
+</form>
+{% endblock %}

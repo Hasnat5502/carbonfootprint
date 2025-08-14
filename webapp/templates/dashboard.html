@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome, {{ first_name }}</h2>
+<p class="muted">{{ month_year }}</p>
+<div class="stats">
+	<div>
+		<div class="label">CO2e saved</div>
+		<div class="value">{{ '%.2f'|format(co2_saved) }} kg</div>
+	</div>
+	<div>
+		<div class="label">Tali points</div>
+		<div class="value">{{ tali_points }}</div>
+	</div>
+</div>
+
+<h3>Category emissions (tons/year)</h3>
+<div class="bars">
+	<div class="bar">
+		<div class="bar-fill" style="height: {{ max(10, (home_emission/3.0)*300)|int }}px"></div>
+		<span>Home<br>{{ home_emission }}</span>
+	</div>
+	<div class="bar">
+		<div class="bar-fill" style="height: {{ max(10, (travel_emission/3.0)*300)|int }}px"></div>
+		<span>Travel<br>{{ travel_emission }}</span>
+	</div>
+	<div class="bar">
+		<div class="bar-fill" style="height: {{ max(10, (food_emission/3.0)*300)|int }}px"></div>
+		<span>Food<br>{{ food_emission }}</span>
+	</div>
+	<div class="bar">
+		<div class="bar-fill" style="height: {{ max(10, (others_emission/3.0)*300)|int }}px"></div>
+		<span>Others<br>{{ others_emission }}</span>
+	</div>
+</div>
+{% endblock %}
