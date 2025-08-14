@@ -1,0 +1,413 @@
+#:kivy 2.3.0
+
+<RootManager>:
+	splash: splash
+	landing: landing
+	signup: signup
+	signin: signin
+	home: home
+	dashboard: dashboard
+	survey: survey
+	overall: overall
+	progress: progress
+	search: search
+	action1: action1
+	habit: habit
+	connect: connect
+
+	SplashScreen:
+		id: splash
+		name: "splash"
+	LandingScreen:
+		id: landing
+		name: "landing"
+	SignUpScreen:
+		id: signup
+		name: "signup"
+	SignInScreen:
+		id: signin
+		name: "signin"
+	HomeScreen:
+		id: home
+		name: "home"
+	DashboardScreen:
+		id: dashboard
+		name: "dashboard"
+	TakeSurveyScreen:
+		id: survey
+		name: "survey"
+	OverallScreen:
+		id: overall
+		name: "overall"
+	ProgressScreen:
+		id: progress
+		name: "progress"
+	SearchScreen:
+		id: search
+		name: "search"
+	ActionScreen:
+		id: action1
+		title: "Reduce Food Waste"
+		name: "action1"
+	HabitScreen:
+		id: habit
+		name: "habit"
+	ConnectScreen:
+		id: connect
+		name: "connect"
+
+<SplashScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		spacing: dp(10)
+		padding: dp(24)
+		Label:
+			text: "Carbonfootprint"
+			font_size: dp(28)
+			bold: True
+			valign: "middle"
+			halign: "center"
+
+<LandingScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(24)
+		spacing: dp(12)
+		Label:
+			text: "Welcome"
+			font_size: dp(24)
+		Button:
+			text: "Join (Organization)"
+			on_release: app.switch_screen("signup")
+		Button:
+			text: "Join (Own)"
+			on_release: app.switch_screen("signup")
+		Widget:
+			
+
+<SignUpScreen>:
+	first_name: first_name
+	last_name: last_name
+	email: email
+	password: password
+	confirm_password: confirm_password
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(24)
+		spacing: dp(10)
+		Label:
+			text: "Create Account"
+			font_size: dp(22)
+		TextInput:
+			id: first_name
+			hint_text: "First name"
+		TextInput:
+			id: last_name
+			hint_text: "Last name"
+		TextInput:
+			id: email
+			hint_text: "Email"
+			input_type: "text"
+		TextInput:
+			id: password
+			hint_text: "Password (min 8)"
+			password: True
+		TextInput:
+			id: confirm_password
+			hint_text: "Confirm password"
+			password: True
+		Button:
+			text: "Create Account"
+			on_release: root.handle_create_account()
+		Label:
+			text: root.status_text
+			color: 1,0,0,1
+		Button:
+			text: "Already have an account? Sign in"
+			size_hint_y: None
+			height: dp(40)
+			on_release: app.switch_screen("signin")
+
+<SignInScreen>:
+	signin_email: signin_email
+	signin_password: signin_password
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(24)
+		spacing: dp(10)
+		Label:
+			text: "Sign In"
+			font_size: dp(22)
+		TextInput:
+			id: signin_email
+			hint_text: "Email"
+		TextInput:
+			id: signin_password
+			hint_text: "Password (min 8)"
+			password: True
+		Button:
+			text: "Sign In"
+			on_release: root.handle_login()
+		Label:
+			text: root.status_text
+			color: 1,0,0,1
+
+<HomeScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Home"
+			font_size: dp(24)
+		GridLayout:
+			cols: 2
+			size_hint_y: None
+			height: self.minimum_height
+			row_default_height: dp(140)
+			row_force_default: True
+			Button:
+				text: "Reduce Food Waste"
+				on_release: app.switch_screen("action1")
+			Button:
+				text: "Short Walk Action"
+				on_release: None
+			Button:
+				text: "Bottle Water"
+				on_release: None
+			Button:
+				text: "Clean"
+				on_release: None
+		BoxLayout:
+			size_hint_y: None
+			height: dp(56)
+			spacing: dp(8)
+			Button:
+				text: "Survey"
+				on_release: root.open_survey_or_overall()
+			Button:
+				text: "Dashboard"
+				on_release: app.switch_screen("dashboard")
+			Button:
+				text: "Progress"
+				on_release: app.switch_screen("progress")
+			Button:
+				text: "Search"
+				on_release: app.switch_screen("search")
+			Button:
+				text: "Connect"
+				on_release: app.switch_screen("connect")
+
+<DashboardScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		BoxLayout:
+			size_hint_y: None
+			height: dp(40)
+			Label:
+				text: root.user_name
+				bold: True
+				font_size: dp(18)
+			Label:
+				text: root.month_year
+		Label:
+			text: root.co2_saved_text
+		Label:
+			text: "Tali Points: " + root.tali_points_text
+		BoxLayout:
+			size_hint_y: None
+			height: dp(220)
+			spacing: dp(10)
+			canvas.before:
+				Color:
+					rgba: 0.95,0.95,0.95,1
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			BoxLayout:
+				orientation: "vertical"
+				Label:
+					text: "Home"
+					font_size: dp(12)
+				Widget:
+					id: home_bar
+					size_hint_y: None
+					height: dp(10)
+			BoxLayout:
+				orientation: "vertical"
+				Label:
+					text: "Travel"
+					font_size: dp(12)
+				Widget:
+					id: travel_bar
+					size_hint_y: None
+					height: dp(10)
+			BoxLayout:
+				orientation: "vertical"
+				Label:
+					text: "Food"
+					font_size: dp(12)
+				Widget:
+					id: food_bar
+					size_hint_y: None
+					height: dp(10)
+			BoxLayout:
+				orientation: "vertical"
+				Label:
+					text: "Others"
+					font_size: dp(12)
+				Widget:
+					id: others_bar
+					size_hint_y: None
+					height: dp(10)
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<TakeSurveyScreen>:
+	home_input: home_input
+	travel_input: travel_input
+	food_input: food_input
+	others_input: others_input
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Enter annual emissions (tons)"
+			font_size: dp(18)
+		GridLayout:
+			cols: 2
+			row_default_height: dp(48)
+			row_force_default: True
+			spacing: dp(6)
+			Label:
+				text: "Home"
+			TextInput:
+				id: home_input
+				text: "0.0"
+			Label:
+				text: "Travel"
+			TextInput:
+				id: travel_input
+				text: "0.0"
+			Label:
+				text: "Food"
+			TextInput:
+				id: food_input
+				text: "0.0"
+			Label:
+				text: "Others"
+			TextInput:
+				id: others_input
+				text: "0.0"
+		Button:
+			text: "Save Survey"
+			size_hint_y: None
+			height: dp(44)
+			on_release: root.save_survey()
+		Label:
+			text: root.status_text
+			color: 1,0,0,1
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<OverallScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Overall"
+			font_size: dp(22)
+		Label:
+			text: root.total_text
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<ProgressScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Progress"
+			font_size: dp(22)
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<SearchScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Search"
+			font_size: dp(22)
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<ActionScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: root.title
+			font_size: dp(22)
+		Label:
+			text: "Complete this action to earn points."
+		Button:
+			text: "Mark as Done"
+			on_release: root.complete_action()
+		Label:
+			text: "Completed!" if root.completed else ""
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<HabitScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Habit"
+			font_size: dp(22)
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
+
+<ConnectScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: dp(16)
+		spacing: dp(8)
+		Label:
+			text: "Connect"
+			font_size: dp(22)
+		Button:
+			text: "Back"
+			size_hint_y: None
+			height: dp(44)
+			on_release: app.switch_screen("home")
