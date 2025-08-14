@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}Other Activities Survey - EcoTracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-info text-white">
+                <h3 class="mb-0">
+                    <i class="fas fa-ellipsis-h me-2"></i>Other Activities Survey
+                </h3>
+                <p class="mb-0 mt-2">Help us understand your other lifestyle choices and activities</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" class="needs-validation" novalidate>
+                    <!-- Question 1: Shopping Habits -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">1. How often do you shop for new items (clothing, electronics, etc.)?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="shopping_frequency" id="rarely_shop" value="rarely" required>
+                            <label class="form-check-label" for="rarely_shop">
+                                Rarely (only when necessary)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="shopping_frequency" id="occasionally_shop" value="occasionally">
+                            <label class="form-check-label" for="occasionally_shop">
+                                Occasionally (few times per year)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="shopping_frequency" id="monthly_shop" value="monthly">
+                            <label class="form-check-label" for="monthly_shop">
+                                Monthly
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="shopping_frequency" id="weekly_shop" value="weekly">
+                            <label class="form-check-label" for="weekly_shop">
+                                Weekly or more
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Second-hand Shopping -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">2. Do you buy second-hand or used items?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="second_hand" id="always_second_hand" value="always" required>
+                            <label class="form-check-label" for="always_second_hand">
+                                Always (prefer second-hand)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="second_hand" id="often_second_hand" value="often">
+                            <label class="form-check-label" for="often_second_hand">
+                                Often (50% of purchases)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="second_hand" id="sometimes_second_hand" value="sometimes">
+                            <label class="form-check-label" for="sometimes_second_hand">
+                                Sometimes (occasionally)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="second_hand" id="never_second_hand" value="never">
+                            <label class="form-check-label" for="never_second_hand">
+                                Never (only buy new)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Waste Management -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">3. How do you manage your waste?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="waste_management" id="zero_waste" value="zero" required>
+                            <label class="form-check-label" for="zero_waste">
+                                Zero waste lifestyle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="waste_management" id="recycle_compost" value="recycle_compost">
+                            <label class="form-check-label" for="recycle_compost">
+                                Recycle and compost
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="waste_management" id="recycle_only" value="recycle_only">
+                            <label class="form-check-label" for="recycle_only">
+                                Recycle only
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="waste_management" id="no_recycling" value="no_recycling">
+                            <label class="form-check-label" for="no_recycling">
+                                No special waste management
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Digital Device Usage -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">4. How often do you upgrade your digital devices?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="device_upgrades" id="never_upgrade" value="never" required>
+                            <label class="form-check-label" for="never_upgrade">
+                                Never (use until broken)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="device_upgrades" id="rarely_upgrade" value="rarely">
+                            <label class="form-check-label" for="rarely_upgrade">
+                                Rarely (every 5+ years)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="device_upgrades" id="sometimes_upgrade" value="sometimes">
+                            <label class="form-check-label" for="sometimes_upgrade">
+                                Sometimes (every 2-4 years)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="device_upgrades" id="frequently_upgrade" value="frequently">
+                            <label class="form-check-label" for="frequently_upgrade">
+                                Frequently (every 1-2 years)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Entertainment Activities -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">5. What type of entertainment activities do you prefer?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="entertainment" id="outdoor_activities" value="outdoor" required>
+                            <label class="form-check-label" for="outdoor_activities">
+                                Outdoor activities (hiking, sports)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="entertainment" id="cultural_activities" value="cultural">
+                            <label class="form-check-label" for="cultural_activities">
+                                Cultural activities (museums, theaters)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="entertainment" id="home_entertainment" value="home">
+                            <label class="form-check-label" for="home_entertainment">
+                                Home entertainment (TV, gaming)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="entertainment" id="mixed_entertainment" value="mixed">
+                            <label class="form-check-label" for="mixed_entertainment">
+                                Mixed activities
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 6: Energy Conservation -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">6. How conscious are you about energy conservation?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="energy_consciousness" id="very_conscious" value="very" required>
+                            <label class="form-check-label" for="very_conscious">
+                                Very conscious (always turn off lights, unplug devices)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="energy_consciousness" id="somewhat_conscious" value="somewhat">
+                            <label class="form-check-label" for="somewhat_conscious">
+                                Somewhat conscious (usually remember)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="energy_consciousness" id="not_conscious" value="not">
+                            <label class="form-check-label" for="not_conscious">
+                                Not very conscious (often forget)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 7: Sustainable Products -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">7. Do you choose sustainable or eco-friendly products?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="sustainable_products" id="always_sustainable" value="always" required>
+                            <label class="form-check-label" for="always_sustainable">
+                                Always (prioritize sustainable options)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="sustainable_products" id="often_sustainable" value="often">
+                            <label class="form-check-label" for="often_sustainable">
+                                Often (when available and affordable)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="sustainable_products" id="sometimes_sustainable" value="sometimes">
+                            <label class="form-check-label" for="sometimes_sustainable">
+                                Sometimes (occasionally choose sustainable)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="sustainable_products" id="rarely_sustainable" value="rarely">
+                            <label class="form-check-label" for="rarely_sustainable">
+                                Rarely (don't consider sustainability)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </a>
+                        <button type="submit" class="btn btn-info">
+                            <i class="fas fa-paper-plane me-2"></i>Submit Survey
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %}

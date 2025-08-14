@@ -1,0 +1,332 @@
+{% extends "base.html" %}
+
+{% block title %}Take Action - EcoTracker{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <h2 class="mb-2">
+                    <i class="fas fa-leaf me-3"></i>Take Sustainable Actions
+                </h2>
+                <p class="mb-0">Complete these actions to reduce your carbon footprint and earn points!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Home Energy Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-home me-2"></i>Home Energy
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="action-item mb-3" data-action="turn_off_lights" data-co2="0.5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Turn off unused lights</h6>
+                            <small class="text-muted">Save energy by turning off lights when leaving a room</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="unplug_devices" data-co2="0.3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Unplug unused devices</h6>
+                            <small class="text-muted">Reduce phantom energy consumption</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="adjust_thermostat" data-co2="1.2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Adjust thermostat</h6>
+                            <small class="text-muted">Set temperature 2°F lower in winter, 2°F higher in summer</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="use_cold_water" data-co2="0.8">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Wash clothes in cold water</h6>
+                            <small class="text-muted">Save energy on laundry day</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transportation Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">
+                    <i class="fas fa-car me-2"></i>Transportation
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="action-item mb-3" data-action="walk_short_distance" data-co2="0.5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Walk for short trips</h6>
+                            <small class="text-muted">Walk instead of driving for trips under 1 mile</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-warning complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="bike_commute" data-co2="2.0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Bike to work/school</h6>
+                            <small class="text-muted">Use bicycle for daily commute</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-warning complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="public_transport" data-co2="1.5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Use public transportation</h6>
+                            <small class="text-muted">Take bus, train, or subway instead of driving</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-warning complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="carpool" data-co2="1.0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Carpool with colleagues</h6>
+                            <small class="text-muted">Share rides to reduce vehicle emissions</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-warning complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food & Diet Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-utensils me-2"></i>Food & Diet
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="action-item mb-3" data-action="meatless_monday" data-co2="2.5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Meatless Monday</h6>
+                            <small class="text-muted">Go vegetarian for one day</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="buy_local" data-co2="0.8">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Buy local produce</h6>
+                            <small class="text-muted">Purchase food from local farmers markets</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="reduce_food_waste" data-co2="1.2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Reduce food waste</h6>
+                            <small class="text-muted">Plan meals and use leftovers</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="bring_reusable_bag" data-co2="0.3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Bring reusable shopping bag</h6>
+                            <small class="text-muted">Avoid plastic bags at the store</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Waste & Recycling Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-recycle me-2"></i>Waste & Recycling
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="action-item mb-3" data-action="recycle_paper" data-co2="0.4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Recycle paper and cardboard</h6>
+                            <small class="text-muted">Properly sort recyclable materials</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-info complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="use_reusable_bottle" data-co2="0.6">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Use reusable water bottle</h6>
+                            <small class="text-muted">Avoid single-use plastic bottles</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-info complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="compost_food_waste" data-co2="0.8">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Compost food waste</h6>
+                            <small class="text-muted">Turn food scraps into nutrient-rich soil</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-info complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="action-item mb-3" data-action="repair_instead_replace" data-co2="1.5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">Repair instead of replace</h6>
+                            <small class="text-muted">Fix items instead of buying new ones</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-info complete-action">
+                            <i class="fas fa-check me-1"></i>Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Action Completion Modal -->
+<div class="modal fade" id="actionModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Action Completed!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fas fa-check-circle text-success" style="font-size: 3rem;"></i>
+                    <h4 class="mt-3">Great job!</h4>
+                    <p>You've saved <span id="co2Saved">0</span> kg CO2e and earned <span id="pointsEarned">0</span> points!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle action completion
+    document.querySelectorAll('.complete-action').forEach(button => {
+        button.addEventListener('click', function() {
+            const actionItem = this.closest('.action-item');
+            const actionType = actionItem.dataset.action;
+            const co2Saved = parseFloat(actionItem.dataset.co2);
+            const pointsEarned = Math.round(co2Saved * 10);
+            
+            // Send AJAX request to complete action
+            fetch('/complete_action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action_type=${actionType}&co2_saved=${co2Saved}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update modal content
+                    document.getElementById('co2Saved').textContent = co2Saved.toFixed(1);
+                    document.getElementById('pointsEarned').textContent = pointsEarned;
+                    
+                    // Show modal
+                    const modal = new bootstrap.Modal(document.getElementById('actionModal'));
+                    modal.show();
+                    
+                    // Disable button and change appearance
+                    this.disabled = true;
+                    this.innerHTML = '<i class="fas fa-check me-1"></i>Completed';
+                    this.classList.remove('btn-outline-primary', 'btn-outline-warning', 'btn-outline-danger', 'btn-outline-info');
+                    this.classList.add('btn-success');
+                    
+                    // Add completed class to action item
+                    actionItem.classList.add('completed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error completing the action. Please try again.');
+            });
+        });
+    });
+});
+</script>
+{% endblock %}

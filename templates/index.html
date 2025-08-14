@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}EcoTracker - Track Your Carbon Footprint{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center py-5">
+    <div class="row align-items-center min-vh-75">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-success mb-4">
+                <i class="fas fa-leaf me-3"></i>Track Your Carbon Footprint
+            </h1>
+            <p class="lead mb-4">
+                Join thousands of people making sustainable choices. Track your environmental impact 
+                and discover ways to reduce your carbon footprint with our comprehensive surveys and action plans.
+            </p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a href="{{ url_for('signup') }}" class="btn btn-success btn-lg px-4 me-sm-3">
+                    <i class="fas fa-user-plus me-2"></i>Get Started
+                </a>
+                <a href="{{ url_for('signin') }}" class="btn btn-outline-success btn-lg px-4">
+                    <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="hero-image">
+                <i class="fas fa-globe-americas text-success" style="font-size: 15rem; opacity: 0.3;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Why Choose EcoTracker?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-chart-pie text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Comprehensive Surveys</h5>
+                        <p class="card-text">
+                            Take detailed surveys covering home energy, travel, food consumption, and other lifestyle factors 
+                            to get an accurate assessment of your carbon footprint.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-tasks text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Action Plans</h5>
+                        <p class="card-text">
+                            Get personalized recommendations and action plans to reduce your environmental impact 
+                            with practical, achievable steps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-trophy text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="card-title">Track Progress</h5>
+                        <p class="card-text">
+                            Monitor your progress over time with detailed analytics, earn points for sustainable actions, 
+                            and celebrate your environmental achievements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">How It Works</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-success rounded-circle" style="width: 60px; height: 60px; line-height: 60px; font-size: 1.5rem;">1</span>
+                    </div>
+                    <h5>Sign Up</h5>
+                    <p>Create your account and start your sustainability journey.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-success rounded-circle" style="width: 60px; height: 60px; line-height: 60px; font-size: 1.5rem;">2</span>
+                    </div>
+                    <h5>Take Surveys</h5>
+                    <p>Complete surveys about your lifestyle and consumption habits.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-success rounded-circle" style="width: 60px; height: 60px; line-height: 60px; font-size: 1.5rem;">3</span>
+                    </div>
+                    <h5>Get Insights</h5>
+                    <p>Receive detailed analysis of your carbon footprint.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="step-number mb-3">
+                        <span class="badge bg-success rounded-circle" style="width: 60px; height: 60px; line-height: 60px; font-size: 1.5rem;">4</span>
+                    </div>
+                    <h5>Take Action</h5>
+                    <p>Follow personalized recommendations to reduce your impact.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-success text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Make a Difference?</h2>
+        <p class="lead mb-4">Join our community of environmentally conscious individuals and start tracking your carbon footprint today.</p>
+        <a href="{{ url_for('signup') }}" class="btn btn-light btn-lg px-5">
+            <i class="fas fa-rocket me-2"></i>Start Your Journey
+        </a>
+    </div>
+</section>
+{% endblock %}

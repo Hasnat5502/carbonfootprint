@@ -1,0 +1,281 @@
+/* Custom styles for EcoTracker */
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+/* Card enhancements */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    border-bottom: none;
+    font-weight: 600;
+}
+
+/* Button enhancements */
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #218838, #1ea085);
+}
+
+/* Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Form enhancements */
+.form-control {
+    border-radius: 0.5rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Progress bars */
+.progress {
+    border-radius: 1rem;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    border-radius: 1rem;
+    transition: width 0.6s ease;
+}
+
+/* Feature icons */
+.feature-icon {
+    transition: all 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Step numbers */
+.step-number {
+    transition: all 0.3s ease;
+}
+
+.step-number:hover {
+    transform: scale(1.1);
+}
+
+/* Action items */
+.action-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.action-item:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+.action-item.completed {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Achievement badges */
+.achievement-badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.achievement-badge.earned {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.achievement-badge.locked {
+    background: #f8f9fa;
+    color: #6c757d;
+    border: 2px dashed #dee2e6;
+}
+
+.achievement-badge.earned:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+/* Survey styles */
+.form-check {
+    margin-bottom: 0.75rem;
+}
+
+.form-check-label {
+    cursor: pointer;
+    padding-left: 0.5rem;
+}
+
+/* Chart containers */
+canvas {
+    max-height: 400px;
+}
+
+/* Modal enhancements */
+.modal-content {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 1rem 1rem 0 0;
+}
+
+/* Table enhancements */
+.table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table thead th {
+    border-top: none;
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Alert enhancements */
+.alert {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 50vh;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Loading animations */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #28a745;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #218838;
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .btn,
+    .modal,
+    footer {
+        display: none !important;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+}

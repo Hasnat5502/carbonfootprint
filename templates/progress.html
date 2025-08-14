@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}Progress - EcoTracker{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <h2 class="mb-2">
+                    <i class="fas fa-trophy me-3"></i>Your Progress
+                </h2>
+                <p class="mb-0">Track your sustainability journey and celebrate your achievements!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Progress Summary -->
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-leaf text-success mb-3" style="font-size: 2.5rem;"></i>
+                <h3 class="card-title">{{ user.tali_points }}</h3>
+                <p class="card-text text-muted">Total Tali Points</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-chart-line text-primary mb-3" style="font-size: 2.5rem;"></i>
+                <h3 class="card-title">{{ "%.1f"|format(user.total_co2_saved) }}</h3>
+                <p class="card-text text-muted">Total CO2 Saved (kg)</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-calendar-check text-warning mb-3" style="font-size: 2.5rem;"></i>
+                <h3 class="card-title">{{ actions|length }}</h3>
+                <p class="card-text text-muted">Actions Completed</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Achievement Badges -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-medal me-2"></i>Achievement Badges
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="achievement-badge {% if user.tali_points >= 100 %}earned{% else %}locked{% endif %}">
+                                <i class="fas fa-seedling" style="font-size: 2rem;"></i>
+                            </div>
+                            <h6 class="mt-2">Green Beginner</h6>
+                            <small class="text-muted">Earn 100 points</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="achievement-badge {% if user.tali_points >= 500 %}earned{% else %}locked{% endif %}">
+                                <i class="fas fa-tree" style="font-size: 2rem;"></i>
+                            </div>
+                            <h6 class="mt-2">Eco Warrior</h6>
+                            <small class="text-muted">Earn 500 points</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="achievement-badge {% if user.tali_points >= 1000 %}earned{% else %}locked{% endif %}">
+                                <i class="fas fa-globe" style="font-size: 2rem;"></i>
+                            </div>
+                            <h6 class="mt-2">Planet Protector</h6>
+                            <small class="text-muted">Earn 1000 points</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="achievement-badge {% if user.total_co2_saved >= 50 %}earned{% else %}locked{% endif %}">
+                                <i class="fas fa-star" style="font-size: 2rem;"></i>
+                            </div>
+                            <h6 class="mt-2">Carbon Crusher</h6>
+                            <small class="text-muted">Save 50 kg CO2</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Actions -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-history me-2"></i>Recent Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if actions %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>CO2 Saved</th>
+                                    <th>Points Earned</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for action in actions %}
+                                <tr>
+                                    <td>
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        {{ action.action_type.replace('_', ' ').title() }}
+                                    </td>
+                                    <td>{{ "%.1f"|format(action.co2_saved) }} kg CO2e</td>
+                                    <td>{{ (action.co2_saved * 10)|round|int }}</td>
+                                    <td>{{ action.completed_at.strftime('%B %d, %Y') }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-inbox text-muted" style="font-size: 3rem;"></i>
+                        <h5 class="mt-3 text-muted">No actions completed yet</h5>
+                        <p class="text-muted">Start taking sustainable actions to see your progress here!</p>
+                        <a href="{{ url_for('actions') }}" class="btn btn-success">
+                            <i class="fas fa-plus me-2"></i>Take Action
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Progress Chart -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-chart-area me-2"></i>CO2 Savings Over Time
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="progressChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.achievement-badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.achievement-badge.earned {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.achievement-badge.locked {
+    background: #f8f9fa;
+    color: #6c757d;
+    border: 2px dashed #dee2e6;
+}
+
+.achievement-badge.earned:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Progress Chart
+const ctx = document.getElementById('progressChart').getContext('2d');
+const progressChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [
+            {% for action in actions|reverse %}
+                '{{ action.completed_at.strftime("%b %d") }}'{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Cumulative CO2 Saved (kg)',
+            data: [
+                {% set cumulative = 0 %}
+                {% for action in actions|reverse %}
+                    {% set cumulative = cumulative + action.co2_saved %}
+                    {{ cumulative }}{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ],
+            borderColor: '#28a745',
+            backgroundColor: 'rgba(40, 167, 69, 0.1)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'CO2 Saved (kg)'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Date'
+                }
+            }
+        }
+    }
+});
+</script>
+{% endblock %}
