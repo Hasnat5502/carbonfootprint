@@ -1,0 +1,38 @@
+package com.example.carbonfootprint;
+
+import androidx.activity.EdgeToEdge;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ShortWorkActionDone extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_shortwalk_done);
+
+        // Button 1: Redirect to Progress page
+        Button btnProgress = findViewById(R.id.action_button);
+        btnProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShortWorkActionDone.this, Progress.class));
+            }
+        });
+
+        // Button 2: Redirect to SearchPage
+        Button btnSearchPage = findViewById(R.id.action_button2);
+        btnSearchPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShortWorkActionDone.this, SearchActivity.class));
+            }
+        });
+
+
+    }
+}
