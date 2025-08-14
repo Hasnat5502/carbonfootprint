@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block title %}Home Survey - EcoTracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="fas fa-home me-2"></i>Home Energy Survey
+                </h3>
+                <p class="mb-0 mt-2">Help us understand your home energy consumption patterns</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" class="needs-validation" novalidate>
+                    <!-- Question 1: Home Size -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">1. What is the size of your home?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="home_size" id="small_home" value="small" required>
+                            <label class="form-check-label" for="small_home">
+                                Small (under 1,000 sq ft)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="home_size" id="medium_home" value="medium">
+                            <label class="form-check-label" for="medium_home">
+                                Medium (1,000 - 2,000 sq ft)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="home_size" id="large_home" value="large">
+                            <label class="form-check-label" for="large_home">
+                                Large (over 2,000 sq ft)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Heating System -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">2. What type of heating system do you use?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="heating" id="electric_heat" value="electric" required>
+                            <label class="form-check-label" for="electric_heat">
+                                Electric heating
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="heating" id="gas_heat" value="gas">
+                            <label class="form-check-label" for="gas_heat">
+                                Natural gas heating
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="heating" id="oil_heat" value="oil">
+                            <label class="form-check-label" for="oil_heat">
+                                Oil heating
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="heating" id="heat_pump" value="heat_pump">
+                            <label class="form-check-label" for="heat_pump">
+                                Heat pump
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="heating" id="no_heating" value="none">
+                            <label class="form-check-label" for="no_heating">
+                                No heating system
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Air Conditioning -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">3. Do you use air conditioning?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ac_usage" id="ac_heavy" value="heavy" required>
+                            <label class="form-check-label" for="ac_heavy">
+                                Yes, heavily (most of the year)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ac_usage" id="ac_moderate" value="moderate">
+                            <label class="form-check-label" for="ac_moderate">
+                                Yes, moderately (summer months)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ac_usage" id="ac_light" value="light">
+                            <label class="form-check-label" for="ac_light">
+                                Yes, lightly (occasionally)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ac_usage" id="ac_none" value="none">
+                            <label class="form-check-label" for="ac_none">
+                                No air conditioning
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Energy Efficiency -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">4. How energy efficient is your home?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="energy_efficiency" id="very_efficient" value="very" required>
+                            <label class="form-check-label" for="very_efficient">
+                                Very efficient (new construction, energy star appliances)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="energy_efficiency" id="somewhat_efficient" value="somewhat">
+                            <label class="form-check-label" for="somewhat_efficient">
+                                Somewhat efficient (some energy saving features)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="energy_efficiency" id="not_efficient" value="not">
+                            <label class="form-check-label" for="not_efficient">
+                                Not very efficient (older home, basic appliances)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Renewable Energy -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">5. Do you use renewable energy sources?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="renewable_energy" id="solar_panels" value="solar" required>
+                            <label class="form-check-label" for="solar_panels">
+                                Yes, solar panels
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="renewable_energy" id="wind_power" value="wind">
+                            <label class="form-check-label" for="wind_power">
+                                Yes, wind power
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="renewable_energy" id="green_energy" value="green">
+                            <label class="form-check-label" for="green_energy">
+                                Yes, green energy plan
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="renewable_energy" id="no_renewable" value="none">
+                            <label class="form-check-label" for="no_renewable">
+                                No renewable energy
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 6: Water Usage -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">6. How would you describe your water usage?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="water_usage" id="water_conservative" value="conservative" required>
+                            <label class="form-check-label" for="water_conservative">
+                                Conservative (low-flow fixtures, short showers)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="water_usage" id="water_average" value="average">
+                            <label class="form-check-label" for="water_average">
+                                Average (standard usage)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="water_usage" id="water_high" value="high">
+                            <label class="form-check-label" for="water_high">
+                                High (long showers, frequent laundry)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane me-2"></i>Submit Survey
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %}

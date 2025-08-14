@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+{% block title %}Travel Survey - EcoTracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-warning text-dark">
+                <h3 class="mb-0">
+                    <i class="fas fa-car me-2"></i>Travel & Transportation Survey
+                </h3>
+                <p class="mb-0 mt-2">Help us understand your transportation habits and travel patterns</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" class="needs-validation" novalidate>
+                    <!-- Question 1: Daily Commute Distance -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">1. What is your average daily commute distance?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="commute_distance" id="no_commute" value="none" required>
+                            <label class="form-check-label" for="no_commute">
+                                No commute (work from home)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="commute_distance" id="short_commute" value="short">
+                            <label class="form-check-label" for="short_commute">
+                                Short (under 5 miles)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="commute_distance" id="medium_commute" value="medium">
+                            <label class="form-check-label" for="medium_commute">
+                                Medium (5-15 miles)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="commute_distance" id="long_commute" value="long">
+                            <label class="form-check-label" for="long_commute">
+                                Long (over 15 miles)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Primary Transportation -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">2. What is your primary mode of transportation?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="primary_transport" id="walking" value="walking" required>
+                            <label class="form-check-label" for="walking">
+                                Walking
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="primary_transport" id="bicycle" value="bicycle">
+                            <label class="form-check-label" for="bicycle">
+                                Bicycle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="primary_transport" id="public_transport" value="public">
+                            <label class="form-check-label" for="public_transport">
+                                Public transportation
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="primary_transport" id="motorcycle" value="motorcycle">
+                            <label class="form-check-label" for="motorcycle">
+                                Motorcycle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="primary_transport" id="car" value="car">
+                            <label class="form-check-label" for="car">
+                                Car
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Vehicle Type -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">3. If you drive, what type of vehicle do you use?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vehicle_type" id="electric_vehicle" value="electric" required>
+                            <label class="form-check-label" for="electric_vehicle">
+                                Electric vehicle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vehicle_type" id="hybrid_vehicle" value="hybrid">
+                            <label class="form-check-label" for="hybrid_vehicle">
+                                Hybrid vehicle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vehicle_type" id="petrol_vehicle" value="petrol">
+                            <label class="form-check-label" for="petrol_vehicle">
+                                Petrol vehicle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vehicle_type" id="diesel_vehicle" value="diesel">
+                            <label class="form-check-label" for="diesel_vehicle">
+                                Diesel vehicle
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vehicle_type" id="no_vehicle" value="none">
+                            <label class="form-check-label" for="no_vehicle">
+                                I don't drive
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Air Travel -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">4. How often do you travel by air?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="air_travel" id="no_flights" value="none" required>
+                            <label class="form-check-label" for="no_flights">
+                                Never (no air travel)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="air_travel" id="few_flights" value="few">
+                            <label class="form-check-label" for="few_flights">
+                                Rarely (1-2 times per year)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="air_travel" id="moderate_flights" value="moderate">
+                            <label class="form-check-label" for="moderate_flights">
+                                Occasionally (3-5 times per year)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="air_travel" id="frequent_flights" value="frequent">
+                            <label class="form-check-label" for="frequent_flights">
+                                Frequently (more than 5 times per year)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Carpooling -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">5. Do you carpool or share rides?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="carpooling" id="always_carpool" value="always" required>
+                            <label class="form-check-label" for="always_carpool">
+                                Always (regular carpooling)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="carpooling" id="sometimes_carpool" value="sometimes">
+                            <label class="form-check-label" for="sometimes_carpool">
+                                Sometimes (occasional sharing)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="carpooling" id="rarely_carpool" value="rarely">
+                            <label class="form-check-label" for="rarely_carpool">
+                                Rarely (seldom share rides)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="carpooling" id="never_carpool" value="never">
+                            <label class="form-check-label" for="never_carpool">
+                                Never (always travel alone)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 6: Ride Sharing -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">6. Do you use ride-sharing services (Uber, Lyft, etc.)?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ride_sharing" id="frequent_rideshare" value="frequent" required>
+                            <label class="form-check-label" for="frequent_rideshare">
+                                Frequently (several times per week)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ride_sharing" id="occasional_rideshare" value="occasional">
+                            <label class="form-check-label" for="occasional_rideshare">
+                                Occasionally (few times per month)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ride_sharing" id="rarely_rideshare" value="rarely">
+                            <label class="form-check-label" for="rarely_rideshare">
+                                Rarely (few times per year)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="ride_sharing" id="never_rideshare" value="never">
+                            <label class="form-check-label" for="never_rideshare">
+                                Never (don't use ride-sharing)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 7: Route Planning -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">7. How do you plan your travel routes?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="route_planning" id="eco_routes" value="eco" required>
+                            <label class="form-check-label" for="eco_routes">
+                                Always choose eco-friendly routes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="route_planning" id="sometimes_eco" value="sometimes">
+                            <label class="form-check-label" for="sometimes_eco">
+                                Sometimes consider eco-friendly options
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="route_planning" id="fastest_routes" value="fastest">
+                            <label class="form-check-label" for="fastest_routes">
+                                Usually choose fastest routes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="route_planning" id="no_planning" value="none">
+                            <label class="form-check-label" for="no_planning">
+                                Don't plan routes specifically
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </a>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fas fa-paper-plane me-2"></i>Submit Survey
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %}
