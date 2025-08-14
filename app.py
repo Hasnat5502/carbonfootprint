@@ -41,45 +41,87 @@ class Action(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/test')
+def test():
+    """Test route to check if the application is working"""
+    return jsonify({
+        'status': 'success',
+        'message': 'Application is running',
+        'database': 'connected' if db.engine else 'not connected'
+    })
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
+        print("Signup POST request received")
+        print(f"Form data: {request.form}")
+        
         email = request.form['email']
         password = request.form['password']
+        confirm_password = request.form.get('confirm_password', '')
         first_name = request.form['first_name']
         last_name = request.form['last_name']
+        
+        # Validation
+        if not email or not password or not first_name or not last_name:
+            flash('All fields are required')
+            return redirect(url_for('signup'))
+        
+        if password != confirm_password:
+            flash('Passwords do not match')
+            return redirect(url_for('signup'))
+        
+        if len(password) < 6:
+            flash('Password must be at least 6 characters long')
+            return redirect(url_for('signup'))
         
         if User.query.filter_by(email=email).first():
             flash('Email already registered')
             return redirect(url_for('signup'))
         
-        user = User(
-            email=email,
-            password_hash=generate_password_hash(password),
-            first_name=first_name,
-            last_name=last_name
-        )
-        db.session.add(user)
-        db.session.commit()
-        
-        flash('Registration successful! Please sign in.')
-        return redirect(url_for('signin'))
+        try:
+            user = User(
+                email=email,
+                password_hash=generate_password_hash(password),
+                first_name=first_name,
+                last_name=last_name
+            )
+            db.session.add(user)
+            db.session.commit()
+            
+            flash('Registration successful! Please sign in.')
+            return redirect(url_for('signin'))
+        except Exception as e:
+            db.session.rollback()
+            flash('Registration failed. Please try again.')
+            print(f"Registration error: {e}")
+            return redirect(url_for('signup'))
     
     return render_template('signup.html')
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        email = request.form.get('email', '').strip()
+        password = request.form.get('password', '')
         
-        user = User.query.filter_by(email=email).first()
-        if user and check_password_hash(user.password_hash, password):
-            session['user_id'] = user.id
-            session['user_name'] = user.first_name
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Invalid email or password')
+        # Validation
+        if not email or not password:
+            flash('Please enter both email and password')
+            return redirect(url_for('signin'))
+        
+        try:
+            user = User.query.filter_by(email=email).first()
+            if user and check_password_hash(user.password_hash, password):
+                session['user_id'] = user.id
+                session['user_name'] = user.first_name
+                flash(f'Welcome back, {user.first_name}!')
+                return redirect(url_for('dashboard'))
+            else:
+                flash('Invalid email or password')
+        except Exception as e:
+            flash('Login failed. Please try again.')
+            print(f"Login error: {e}")
     
     return render_template('signin.html')
 
@@ -501,5 +543,9 @@ def calculate_others_emission(form_data):
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()
-    app.run(debug=True)
+        try:
+            db.create_all()
+            print("Database tables created successfully!")
+        except Exception as e:
+            print(f"Database creation error: {e}")
+    app.run(debug=True, host='0.0.0.0', port=5000)
