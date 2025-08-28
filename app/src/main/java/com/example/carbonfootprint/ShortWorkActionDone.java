@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ShortWorkActionDone extends AppCompatActivity {
@@ -33,6 +34,17 @@ public class ShortWorkActionDone extends AppCompatActivity {
             }
         });
 
+        // Footer Image Clicks
+        ImageView home = findViewById(R.id.home);
+        ImageView search = findViewById(R.id.search);
+        ImageView progress = findViewById(R.id.progress);
+        ImageView connect = findViewById(R.id.connect);
+        ImageView reward = findViewById(R.id.reward);
 
+        home.setOnClickListener(v -> startActivity(new Intent(ShortWorkActionDone.this, MainActivity.class)));
+        search.setOnClickListener(v -> startActivity(new Intent(ShortWorkActionDone.this, SearchActivity.class)));
+        progress.setOnClickListener(v -> startActivity(new Intent(ShortWorkActionDone.this, Progress.class)));
+        connect.setOnClickListener(v -> startActivity(new Intent(ShortWorkActionDone.this, connect.class)));
+        reward.setOnClickListener(v -> startActivity(new Intent(ShortWorkActionDone.this, Reward.class)));
     }
 }

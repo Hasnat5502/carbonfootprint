@@ -111,5 +111,12 @@ public class Main1 extends AppCompatActivity {
             startActivity(new Intent(this, Progress.class));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
+
+        // Reward icon click - NEW CODE ADDED HERE
+        ImageView rewardIcon = findViewById(R.id.Reward);
+        rewardIcon.setOnClickListener(v -> {
+            startActivity(new Intent(this, Reward.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
     }
 }

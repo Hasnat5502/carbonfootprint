@@ -1,15 +1,21 @@
 package com.example.carbonfootprint;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +28,44 @@ public class Habit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_habit);
 
         cardContainer = findViewById(R.id.cardContainer);
         sharedPreferences = getSharedPreferences(Progress.PREF_NAME, MODE_PRIVATE);
+
+        // 🔹 Button: My Actions (redirect to SearchActivity or any desired page)
+        View btnMyActions = findViewById(R.id.btnMyActions);
+        btnMyActions.setOnClickListener(v ->
+                startActivity(new Intent(Habit.this, Progress.class)) // Change target Activity if needed
+        );
+
+        // 🔹 Footer Navigation
+        ImageView homeIcon = findViewById(R.id.home);
+        ImageView searchIcon = findViewById(R.id.search);
+        ImageView progressIcon = findViewById(R.id.progress);
+        ImageView connectIcon = findViewById(R.id.connect);
+        ImageView rewardIcon = findViewById(R.id.reward);
+
+        homeIcon.setOnClickListener(v ->
+                startActivity(new Intent(Habit.this, Main1.class))
+        );
+
+        searchIcon.setOnClickListener(v ->
+                startActivity(new Intent(Habit.this, SearchActivity.class))
+        );
+
+        progressIcon.setOnClickListener(v ->
+                startActivity(new Intent(Habit.this, Progress.class))
+        );
+
+        connectIcon.setOnClickListener(v ->
+                startActivity(new Intent(Habit.this, connect.class)) // replace with your Connect page
+        );
+
+        rewardIcon.setOnClickListener(v ->
+                startActivity(new Intent(Habit.this, Reward.class)) // replace with your Reward page
+        );
 
         loadHabitCards();
     }
@@ -38,7 +78,6 @@ public class Habit extends AppCompatActivity {
 
     private void loadHabitCards() {
         cardContainer.removeAllViews();
-        sharedPreferences.edit().clear().apply();
         String json = sharedPreferences.getString(Progress.HABIT_LIST_KEY, null);
 
         if (json != null) {

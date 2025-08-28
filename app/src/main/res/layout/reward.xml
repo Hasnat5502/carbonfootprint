@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F6FD"
+    android:paddingTop="60dp">
+
+    <!-- Header with title and points -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:gravity="center_vertical"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Spend your Tailpoints"
+            android:textColor="#1B4332"
+            android:background="@android:color/transparent"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/rewardroundedbox"
+            android:padding="5dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/staricon"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/taliPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="0"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Main content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_above="@+id/footer"
+        android:layout_marginBottom="9dp"
+        android:background="@android:color/transparent"
+        android:scrollbars="none"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:text="Choose a cause"
+                android:textColor="#1B4332"
+                android:textSize="18sp" />
+
+            <!-- Charity section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@android:color/transparent"
+                android:text="Charity"
+                android:textColor="#1B4332"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Clean Water for Schools Card -->
+            <LinearLayout
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/card_background"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Title with arrow -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clean Water for Schools"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/arrow"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Support clean water access for kids in remote areas NGOs use donations to install filters and tanks."
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <!-- Progress Bar Container -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/progress_bar_background">
+
+                    <!-- Progress Fill - Using layout_weight with LinearLayout instead of percentage -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="30"
+                            android:background="@drawable/progress_bar_fill" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="70"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="end"
+                    android:text="193,200 Tailpoints received"
+                    android:textColor="#000000"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Reforest the Amazon Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/card_background"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Title with arrow -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reforest the Amazon"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/arrow"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Help plant trees in deforested areas of the Amazon. Partnered with One Tree Planted, each donation plants real trees."
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <!-- Progress Bar Container -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/progress_bar_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="60"
+                            android:background="@drawable/progress_bar_fill" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="end"
+                    android:text="234,200 Tailpoints received"
+                    android:textColor="#000000"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Rescue Ocean Plastic Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/card_background"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Title with arrow -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rescue Ocean Plastic"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/arrow"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Support ocean cleanups in Southeast Asia. Funds go to removing plastic from beaches and rivers."
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <!-- Progress Bar Container -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/progress_bar_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            android:background="@drawable/progress_bar_fill" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="80"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="end"
+                    android:text="142,350 Tailpoints received"
+                    android:textColor="#000000"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Power with Solar Light Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/card_background"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Title with arrow -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Power with Solar Light"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/arrow"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="Arrow" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Give families solar lamps to reduce kerosene use. Helps reduce carbon AND improves safety at night."
+                    android:textColor="#000000"
+                    android:textSize="10sp" />
+
+                <!-- Progress Bar Container -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/progress_bar_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="45"
+                            android:background="@drawable/progress_bar_fill" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="55"
+                            android:background="@android:color/transparent" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="end"
+                    android:text="210,720 Tailpoints received"
+                    android:textColor="#000000"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Footer -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:background="@drawable/footer_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="7"
+        android:layout_alignParentBottom="true">
+
+        <!-- Side space -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.3" />
+
+        <!-- Home Icon with background -->
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:contentDescription="Home"
+            android:gravity="center"
+            android:background="@drawable/footer_icon_bg"
+            android:src="@drawable/fox" />
+
+        <!-- Space between icons -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2" />
+
+        <!-- Search Icon with background -->
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:contentDescription="Search"
+            android:gravity="center"
+            android:background="@drawable/footer_icon_bg"
+            android:src="@drawable/search" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2" />
+
+        <!-- Progress Icon with background -->
+        <ImageView
+            android:id="@+id/progress"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:contentDescription="Progress"
+            android:gravity="center"
+            android:background="@drawable/footer_icon_bg"
+            android:src="@drawable/progress" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2" />
+
+        <!-- Connect Icon with background -->
+        <ImageView
+            android:id="@+id/connect"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:contentDescription="Connect"
+            android:background="@drawable/footer_icon_bg"
+            android:src="@drawable/connect" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2" />
+
+        <!-- Reward Icon with background -->
+        <ImageView
+            android:id="@+id/reward"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/footer_icon_bg"
+            android:contentDescription="Reward"
+            android:src="@drawable/reward" />
+
+        <!-- Side space -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.3" />
+    </LinearLayout>
+
+</RelativeLayout>

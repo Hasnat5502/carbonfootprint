@@ -22,57 +22,49 @@ public class SearchActivity extends AppCompatActivity {
         View Card4View = findViewById(R.id.Card4);
         View main1View = findViewById(R.id.main1);
 
-
-        // Find the progress icon in the footer
+        // Footer icons
         ImageView progressIcon = findViewById(R.id.progress);
+        ImageView connectIcon = findViewById(R.id.connect);
+        ImageView rewardIcon = findViewById(R.id.reward);
 
         // Card1: Reduce Food Waste
-        Card1View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, ReduceF_waste.class));
-            }
-        });
+        Card1View.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, ReduceF_waste.class))
+        );
 
-        // Card2: Short Work Action
-        Card2View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, ShortWalkAction.class));
-            }
-        });
+        // Card2: Short Walk Action
+        Card2View.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, ShortWalkAction.class))
+        );
 
         // Card3: Bottled Water
-        Card3View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, BottolWater.class));
-            }
-        });
+        Card3View.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, BottolWater.class))
+        );
 
-        // Card3: Bottled Water
-        Card4View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, Clean.class));
-            }
-        });
+        // Card4: Clean Action
+        Card4View.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, Clean.class))
+        );
 
-        main1View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, Main1.class));
-            }
-        });
-
-
+        // Main1 redirect
+        main1View.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, Main1.class))
+        );
 
         // Progress Icon: Redirect to Progress activity
-        progressIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SearchActivity.this, Progress.class));
-            }
-        });
+        progressIcon.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, Progress.class))
+        );
+
+        // Connect Icon: Redirect to Connect activity
+        connectIcon.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, connect.class))
+        );
+
+        // Reward Icon: Redirect to Reward activity
+        rewardIcon.setOnClickListener(v ->
+                startActivity(new Intent(SearchActivity.this, Reward.class))
+        );
     }
 }

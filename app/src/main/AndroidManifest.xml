@@ -114,6 +114,9 @@
         <activity android:name=".CleanDone" />
         <activity android:name=".BottolWaterDone" />
         <activity android:name=".connect" />
+        <activity android:name=".Reward" />
+        <activity android:name=".Reforest" />
+        <activity android:name=".ReforestDone" />
         <activity
             android:name=".Habit"
             android:exported="false" />

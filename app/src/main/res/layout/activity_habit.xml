@@ -160,7 +160,7 @@
             android:layout_weight="1.3" />
 
         <ImageView
-            android:id="@+id/main1"
+            android:id="@+id/home"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:contentDescription="Home"
@@ -174,7 +174,7 @@
             android:layout_weight="1.2" />
 
         <ImageView
-            android:id="@+id/card1"
+            android:id="@+id/search"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:contentDescription="Search"
@@ -202,6 +202,7 @@
             android:layout_weight="1.2" />
 
         <ImageView
+            android:id="@+id/connect"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:contentDescription="Connect"
@@ -214,6 +215,7 @@
             android:layout_weight="1.2" />
 
         <ImageView
+            android:id="@+id/reward"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="@drawable/footer_icon_bg"

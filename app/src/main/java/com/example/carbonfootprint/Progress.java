@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -40,6 +41,10 @@ public class Progress extends AppCompatActivity {
         View main1View = findViewById(R.id.main1);
         View btnMyHabitsView = findViewById(R.id.btnMyHabits);
 
+        // Footer icons
+        ImageView connectIcon = findViewById(R.id.connect);
+        ImageView rewardIcon = findViewById(R.id.reward);
+
         btnMyHabitsView.setOnClickListener(v ->
                 startActivity(new Intent(Progress.this, Habit.class))
         );
@@ -50,6 +55,15 @@ public class Progress extends AppCompatActivity {
 
         Card1View.setOnClickListener(v ->
                 startActivity(new Intent(Progress.this, SearchActivity.class))
+        );
+
+        // ✅ Footer click listeners
+        connectIcon.setOnClickListener(v ->
+                startActivity(new Intent(Progress.this, connect.class))
+        );
+
+        rewardIcon.setOnClickListener(v ->
+                startActivity(new Intent(Progress.this, Reward.class))
         );
 
         cardContainer = findViewById(R.id.cardContainer);
@@ -76,7 +90,6 @@ public class Progress extends AppCompatActivity {
 
     private void loadCards() {
         cardContainer.removeAllViews();
-        sharedPreferences.edit().clear().apply();
         String json = sharedPreferences.getString(CARD_LIST_KEY, null);
         if (json != null) {
             Type type = new TypeToken<ArrayList<CardModel>>() {}.getType();

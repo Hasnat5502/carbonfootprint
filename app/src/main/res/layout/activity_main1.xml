@@ -3188,6 +3188,7 @@
 
         <!-- Reward Icon with background -->
             <ImageView
+                android:id="@+id/Reward"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:background="@drawable/footer_icon_bg"

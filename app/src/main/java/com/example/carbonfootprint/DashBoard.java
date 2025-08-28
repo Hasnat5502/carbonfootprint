@@ -1,4 +1,5 @@
 package com.example.carbonfootprint;
+
 import androidx.activity.EdgeToEdge;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,12 +29,12 @@ public class DashBoard extends AppCompatActivity {
     private float homeEmission = 0, travelEmission = 0, foodEmission = 0, othersEmission = 0;
 
     // Fixed bar height values
-    private static final float BAR_HEIGHT_FOR_0_5_TONS = 100f;   // 50dp
-    private static final float BAR_HEIGHT_FOR_1_0_TONS = 200f;  // 100dp
-    private static final float BAR_HEIGHT_FOR_1_5_TONS = 300f;  // 150dp
-    private static final float BAR_HEIGHT_FOR_2_0_TONS = 400f;  // 200dp
-    private static final float BAR_HEIGHT_FOR_2_5_TONS = 500f;  // 250dp
-    private static final float BAR_HEIGHT_FOR_3_0_TONS = 600f;  // 300dp
+    private static final float BAR_HEIGHT_FOR_0_5_TONS = 100f;
+    private static final float BAR_HEIGHT_FOR_1_0_TONS = 200f;
+    private static final float BAR_HEIGHT_FOR_1_5_TONS = 300f;
+    private static final float BAR_HEIGHT_FOR_2_0_TONS = 400f;
+    private static final float BAR_HEIGHT_FOR_2_5_TONS = 500f;
+    private static final float BAR_HEIGHT_FOR_3_0_TONS = 600f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class DashBoard extends AppCompatActivity {
         ImageButton backButton = findViewById(R.id.backButton);
         ImageButton settingsButton = findViewById(R.id.settingsButton);
 
+        // Set static username
+        userName.setText("Shihab");
+
         // Set current month/year
         setCurrentDate();
 
@@ -64,7 +68,7 @@ public class DashBoard extends AppCompatActivity {
         backButton.setOnClickListener(v -> finish());
         settingsButton.setOnClickListener(v -> openSettings());
 
-        // Load user data
+        // Load user data with real-time updates (excluding name)
         loadUserData();
 
         // Load emission data
@@ -77,17 +81,16 @@ public class DashBoard extends AppCompatActivity {
     }
 
     private void loadUserData() {
-        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        // Use ValueEventListener for real-time updates (only CO2 and points, not name)
+        databaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    String firstName = dataSnapshot.child("firstName").getValue(String.class);
-                    userName.setText(firstName != null ? firstName : "User");
-
+                    // Removed the firstName fetch here
                     Double co2Value = dataSnapshot.child("totalCO2Saved").getValue(Double.class);
                     Integer taliValue = dataSnapshot.child("taliPoints").getValue(Integer.class);
 
-                    co2Saved.setText(String.format("%.2f kg CO2e saved", co2Value != null ? co2Value : 0.0));
+                    co2Saved.setText(String.format("%.2f kg ", co2Value != null ? co2Value : 0.0));
                     taliPoints.setText(String.valueOf(taliValue != null ? taliValue : 0));
                 }
             }
@@ -99,6 +102,7 @@ public class DashBoard extends AppCompatActivity {
         });
     }
 
+    // The rest of the code remains unchanged...
     private void loadEmissionData() {
         DatabaseReference surveysRef = FirebaseDatabase.getInstance().getReference("surveys");
 

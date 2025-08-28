@@ -1866,6 +1866,7 @@
 
 
             <ImageView
+                android:id="@+id/connect"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:contentDescription="Connect"
@@ -1880,6 +1881,7 @@
 
             <!-- Reward Icon with background -->
             <ImageView
+                android:id="@+id/reward"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:background="@drawable/footer_icon_bg"

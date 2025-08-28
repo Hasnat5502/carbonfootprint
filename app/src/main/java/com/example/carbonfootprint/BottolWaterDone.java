@@ -3,6 +3,8 @@ import androidx.activity.EdgeToEdge;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BottolWaterDone extends AppCompatActivity {
@@ -12,6 +14,20 @@ public class BottolWaterDone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_bottlewater_done);
+
+        // Footer Image Clicks
+        ImageView home = findViewById(R.id.home);
+        ImageView search = findViewById(R.id.search);
+        ImageView progress = findViewById(R.id.progress);
+        ImageView connect = findViewById(R.id.connect);
+        ImageView reward = findViewById(R.id.reward);
+
+        home.setOnClickListener(v -> startActivity(new Intent(BottolWaterDone.this, Main1.class)));
+        search.setOnClickListener(v -> startActivity(new Intent(BottolWaterDone.this, SearchActivity.class)));
+        progress.setOnClickListener(v -> startActivity(new Intent(BottolWaterDone.this, Progress.class)));
+        connect.setOnClickListener(v -> startActivity(new Intent(BottolWaterDone.this, connect.class)));
+        reward.setOnClickListener(v -> startActivity(new Intent(BottolWaterDone.this, Reward.class)));
+
 
         Button actionButton = findViewById(R.id.action_button);
         Button actionButton2 = findViewById(R.id.action_button2);
