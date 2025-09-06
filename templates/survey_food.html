@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}Food Survey - EcoTracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0">
+                    <i class="fas fa-utensils me-2"></i>Food & Diet Survey
+                </h3>
+                <p class="mb-0 mt-2">Help us understand your dietary habits and food consumption patterns</p>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" class="needs-validation" novalidate>
+                    <!-- Question 1: Meat Consumption -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">1. How often do you consume meat?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="meat_frequency" id="never_meat" value="never" required>
+                            <label class="form-check-label" for="never_meat">
+                                Never (vegetarian/vegan)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="meat_frequency" id="once_twice_meat" value="once_twice">
+                            <label class="form-check-label" for="once_twice_meat">
+                                Once or twice per week
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="meat_frequency" id="three_four_meat" value="three_four">
+                            <label class="form-check-label" for="three_four_meat">
+                                Three to four times per week
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="meat_frequency" id="daily_meat" value="daily">
+                            <label class="form-check-label" for="daily_meat">
+                                Daily or more
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Vegetarian Days -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">2. How many days per week do you eat vegetarian meals?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vegetarian_days" id="zero_days" value="0" required>
+                            <label class="form-check-label" for="zero_days">
+                                0 days (never eat vegetarian)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vegetarian_days" id="one_two_days" value="1-2">
+                            <label class="form-check-label" for="one_two_days">
+                                1-2 days per week
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vegetarian_days" id="three_five_days" value="3-5">
+                            <label class="form-check-label" for="three_five_days">
+                                3-5 days per week
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="vegetarian_days" id="six_seven_days" value="6-7">
+                            <label class="form-check-label" for="six_seven_days">
+                                6-7 days per week
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Food Purchase Location -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">3. Where do you primarily purchase your food?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_purchase" id="local_markets" value="local" required>
+                            <label class="form-check-label" for="local_markets">
+                                Local farmers markets
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_purchase" id="supermarkets" value="supermarket">
+                            <label class="form-check-label" for="supermarkets">
+                                Supermarkets
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_purchase" id="imported_stores" value="imported">
+                            <label class="form-check-label" for="imported_stores">
+                                Imported food stores
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_purchase" id="online_grocery" value="online">
+                            <label class="form-check-label" for="online_grocery">
+                                Online grocery delivery
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Organic Produce -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">4. How often do you buy organic produce?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="organic_produce" id="always_organic" value="always" required>
+                            <label class="form-check-label" for="always_organic">
+                                Always (100% organic)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="organic_produce" id="sometimes_organic" value="sometimes">
+                            <label class="form-check-label" for="sometimes_organic">
+                                Sometimes (50% organic)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="organic_produce" id="rarely_organic" value="rarely">
+                            <label class="form-check-label" for="rarely_organic">
+                                Rarely (less than 25% organic)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="organic_produce" id="never_organic" value="never">
+                            <label class="form-check-label" for="never_organic">
+                                Never (no organic produce)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Eating Out -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">5. How often do you eat out or order takeout?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="eat_out_frequency" id="never_eat_out" value="never" required>
+                            <label class="form-check-label" for="never_eat_out">
+                                Never (always cook at home)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="eat_out_frequency" id="rarely_eat_out" value="rarely">
+                            <label class="form-check-label" for="rarely_eat_out">
+                                Rarely (1-2 times per month)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="eat_out_frequency" id="sometimes_eat_out" value="sometimes">
+                            <label class="form-check-label" for="sometimes_eat_out">
+                                Sometimes (1-2 times per week)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="eat_out_frequency" id="frequently_eat_out" value="frequently">
+                            <label class="form-check-label" for="frequently_eat_out">
+                                Frequently (3+ times per week)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 6: Food Waste -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">6. How much food do you typically waste?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_waste" id="no_waste" value="none" required>
+                            <label class="form-check-label" for="no_waste">
+                                None (zero waste)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_waste" id="little_waste" value="little">
+                            <label class="form-check-label" for="little_waste">
+                                Very little (less than 5%)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_waste" id="some_waste" value="some">
+                            <label class="form-check-label" for="some_waste">
+                                Some (5-15%)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="food_waste" id="lots_waste" value="lots">
+                            <label class="form-check-label" for="lots_waste">
+                                A lot (more than 15%)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 7: Reusable Items -->
+                    <div class="mb-4">
+                        <h5 class="mb-3">7. Do you use reusable items for food storage and shopping?</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reusable_items" id="always_reusable" value="always" required>
+                            <label class="form-check-label" for="always_reusable">
+                                Always (100% reusable)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reusable_items" id="mostly_reusable" value="mostly">
+                            <label class="form-check-label" for="mostly_reusable">
+                                Mostly (75% reusable)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reusable_items" id="sometimes_reusable" value="sometimes">
+                            <label class="form-check-label" for="sometimes_reusable">
+                                Sometimes (50% reusable)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="reusable_items" id="rarely_reusable" value="rarely">
+                            <label class="form-check-label" for="rarely_reusable">
+                                Rarely (mostly disposable)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-paper-plane me-2"></i>Submit Survey
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %}
